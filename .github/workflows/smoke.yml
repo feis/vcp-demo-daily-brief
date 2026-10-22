@@ -1,0 +1,27 @@
+name: 晨報雲端測試（僅預覽）
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: daily-brief-smoke
+  cancel-in-progress: false
+jobs:
+  brief:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: 從公開虛構來源產生晨報
+        env:
+          CWA_API_KEY: ''
+          GEMINI_API_KEY: ''
+          DISCORD_WEBHOOK_URL: ''
+          PYTHONIOENCODING: utf-8
+        run: |
+          set -o pipefail
+          python 晨報.py | tee preview.log
+      - name: 核對抓取、篩選及無送出紀錄
+        run: python check-preview.py

@@ -1,0 +1,13 @@
+{
+  "來源": [
+    {
+      "名稱": "虛構學校",
+      "網址": "https://raw.githubusercontent.com/feis/vcp-demo-daily-brief/main/fixtures/news/index.html"
+    }
+  ],
+  "天氣": {
+    "資料": "F-D0047-073",
+    "地區": "北屯區"
+  },
+  "每天最多幾則": 8
+}
