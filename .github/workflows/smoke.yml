@@ -1,7 +1,5 @@
 name: 晨報雲端測試（僅預覽）
 on:
-  schedule:
-    - cron: '45 1 * * *'
   workflow_dispatch:
 permissions:
   contents: read
